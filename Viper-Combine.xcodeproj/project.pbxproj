@@ -27,6 +27,9 @@
 		312A50412437807F00778D6B /* FruitDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312A50402437807F00778D6B /* FruitDetailProtocol.swift */; };
 		312A5044243780BE00778D6B /* FruitDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312A5043243780BE00778D6B /* FruitDetailRouter.swift */; };
 		312A50462437815C00778D6B /* FruitsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312A50452437815C00778D6B /* FruitsRouter.swift */; };
+		319D0154243804BA00A34578 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319D0153243804BA00A34578 /* Film.swift */; };
+		319D0156243805FD00A34578 /* Films.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319D0155243805FD00A34578 /* Films.swift */; };
+		319D01582438064400A34578 /* FilmResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 319D01572438064400A34578 /* FilmResponse.json */; };
 		AF6AE68576847A7E620E57E4 /* Pods_Viper_Combine_Viper_CombineUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCAF3FDD702CBE0598907DC /* Pods_Viper_Combine_Viper_CombineUITests.framework */; };
 		C3BE5B474272A20F4D44E5CF /* Pods_Viper_CombineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8AC0BC44ED3FC65621BABF2 /* Pods_Viper_CombineTests.framework */; };
 /* End PBXBuildFile section */
@@ -78,6 +81,9 @@
 		312A50402437807F00778D6B /* FruitDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitDetailProtocol.swift; sourceTree = "<group>"; };
 		312A5043243780BE00778D6B /* FruitDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitDetailRouter.swift; sourceTree = "<group>"; };
 		312A50452437815C00778D6B /* FruitsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitsRouter.swift; sourceTree = "<group>"; };
+		319D0153243804BA00A34578 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
+		319D0155243805FD00A34578 /* Films.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Films.swift; sourceTree = "<group>"; };
+		319D01572438064400A34578 /* FilmResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FilmResponse.json; sourceTree = "<group>"; };
 		6BCAF3FDD702CBE0598907DC /* Pods_Viper_Combine_Viper_CombineUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Viper_Combine_Viper_CombineUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A78DF0822694C08D2945F85 /* Pods-Viper-CombineTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viper-CombineTests.debug.xcconfig"; path = "Target Support Files/Pods-Viper-CombineTests/Pods-Viper-CombineTests.debug.xcconfig"; sourceTree = "<group>"; };
 		875B674C3F71BCEF26340BA5 /* Pods-Viper-Combine-Viper-CombineUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viper-Combine-Viper-CombineUITests.release.xcconfig"; path = "Target Support Files/Pods-Viper-Combine-Viper-CombineUITests/Pods-Viper-Combine-Viper-CombineUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -198,6 +204,7 @@
 			children = (
 				312A4FEA24376C9100778D6B /* Assets.xcassets */,
 				312A4FED24376C9100778D6B /* Preview Assets.xcassets */,
+				319D01572438064400A34578 /* FilmResponse.json */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -259,6 +266,8 @@
 			isa = PBXGroup;
 			children = (
 				312A502D243776C500778D6B /* Fruit.swift */,
+				319D0153243804BA00A34578 /* Film.swift */,
+				319D0155243805FD00A34578 /* Films.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -286,8 +295,8 @@
 				312A502F2437772100778D6B /* Interactor */,
 				312A50292437761500778D6B /* Presenter */,
 				312A50242437752000778D6B /* Protocol */,
-				312A501F2437739300778D6B /* View */,
 				312A5032243777DD00778D6B /* Router */,
+				312A501F2437739300778D6B /* View */,
 			);
 			path = "fruit-list";
 			sourceTree = "<group>";
@@ -295,9 +304,9 @@
 		312A503624377CCD00778D6B /* fruit-detail */ = {
 			isa = PBXGroup;
 			children = (
-				312A5042243780AB00778D6B /* Router */,
-				312A503F2437806900778D6B /* Protocol */,
 				312A503C24377F5F00778D6B /* Presenter */,
+				312A503F2437806900778D6B /* Protocol */,
+				312A5042243780AB00778D6B /* Router */,
 				312A503724377CE900778D6B /* View */,
 			);
 			path = "fruit-detail";
@@ -360,6 +369,7 @@
 				312A4FDD24376C9000778D6B /* Sources */,
 				312A4FDE24376C9000778D6B /* Frameworks */,
 				312A4FDF24376C9000778D6B /* Resources */,
+				E7B4F8B1E5ECB5D5A5847854 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -397,6 +407,7 @@
 				312A4FFE24376C9100778D6B /* Sources */,
 				312A4FFF24376C9100778D6B /* Frameworks */,
 				312A500024376C9100778D6B /* Resources */,
+				916A2D94599B5F9B99CEA72E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -457,6 +468,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				319D01582438064400A34578 /* FilmResponse.json in Resources */,
 				312A503B24377D0400778D6B /* FruitDetailViewController.xib in Resources */,
 				312A4FEE24376C9100778D6B /* Preview Assets.xcassets in Resources */,
 				312A5023243773B300778D6B /* FruitsViewController.xib in Resources */,
@@ -482,6 +494,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		916A2D94599B5F9B99CEA72E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Viper-Combine-Viper-CombineUITests/Pods-Viper-Combine-Viper-CombineUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Viper-Combine-Viper-CombineUITests/Pods-Viper-Combine-Viper-CombineUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Viper-Combine-Viper-CombineUITests/Pods-Viper-Combine-Viper-CombineUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E035F05D1104BFF501EE3E0D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -502,6 +531,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7B4F8B1E5ECB5D5A5847854 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Viper-Combine/Pods-Viper-Combine-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Viper-Combine/Pods-Viper-Combine-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Viper-Combine/Pods-Viper-Combine-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EF7482EEF2301A335688B0F8 /* [CP] Check Pods Manifest.lock */ = {
@@ -558,6 +604,8 @@
 				312A5044243780BE00778D6B /* FruitDetailRouter.swift in Sources */,
 				312A503E24377F7200778D6B /* FruitDetailPresenter.swift in Sources */,
 				312A502E243776C500778D6B /* Fruit.swift in Sources */,
+				319D0156243805FD00A34578 /* Films.swift in Sources */,
+				319D0154243804BA00A34578 /* Film.swift in Sources */,
 				312A50312437773E00778D6B /* FruitsInteractor.swift in Sources */,
 				312A503A24377D0400778D6B /* FruitDetailViewController.swift in Sources */,
 				312A4FE524376C9000778D6B /* AppDelegate.swift in Sources */,

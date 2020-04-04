@@ -15,4 +15,10 @@ class SplashViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func fruitsTouchUpInside(_ sender: UIButton) {
+        let viewController: FruitsViewController = FruitsViewController()
+        viewController.presenter = FruitsPresenter()
+        let navi: UINavigationController = UINavigationController(rootViewController: viewController)
+        UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.rootViewController = navi
+    }
 }
