@@ -27,8 +27,7 @@
 		312A50412437807F00778D6B /* FruitDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312A50402437807F00778D6B /* FruitDetailProtocol.swift */; };
 		312A5044243780BE00778D6B /* FruitDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312A5043243780BE00778D6B /* FruitDetailRouter.swift */; };
 		312A50462437815C00778D6B /* FruitsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312A50452437815C00778D6B /* FruitsRouter.swift */; };
-		319D0154243804BA00A34578 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319D0153243804BA00A34578 /* Film.swift */; };
-		319D0156243805FD00A34578 /* Films.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319D0155243805FD00A34578 /* Films.swift */; };
+		319D0154243804BA00A34578 /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319D0153243804BA00A34578 /* FilmModel.swift */; };
 		319D01582438064400A34578 /* FilmResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 319D01572438064400A34578 /* FilmResponse.json */; };
 		31A1ED78243984E80022EBF1 /* APIRequestRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1ED77243984E80022EBF1 /* APIRequestRepresentable.swift */; };
 		31A1ED7A243985C60022EBF1 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1ED79243985C60022EBF1 /* API.swift */; };
@@ -94,8 +93,7 @@
 		312A50402437807F00778D6B /* FruitDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitDetailProtocol.swift; sourceTree = "<group>"; };
 		312A5043243780BE00778D6B /* FruitDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitDetailRouter.swift; sourceTree = "<group>"; };
 		312A50452437815C00778D6B /* FruitsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitsRouter.swift; sourceTree = "<group>"; };
-		319D0153243804BA00A34578 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
-		319D0155243805FD00A34578 /* Films.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Films.swift; sourceTree = "<group>"; };
+		319D0153243804BA00A34578 /* FilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
 		319D01572438064400A34578 /* FilmResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FilmResponse.json; sourceTree = "<group>"; };
 		31A1ED77243984E80022EBF1 /* APIRequestRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestRepresentable.swift; sourceTree = "<group>"; };
 		31A1ED79243985C60022EBF1 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -433,8 +431,7 @@
 		31A1ED87243989320022EBF1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				319D0153243804BA00A34578 /* Film.swift */,
-				319D0155243805FD00A34578 /* Films.swift */,
+				319D0153243804BA00A34578 /* FilmModel.swift */,
 				31A1ED882439893B0022EBF1 /* GPRespose.swift */,
 			);
 			path = Model;
@@ -708,8 +705,7 @@
 				312A503E24377F7200778D6B /* FruitDetailPresenter.swift in Sources */,
 				312A502E243776C500778D6B /* Fruit.swift in Sources */,
 				31A1ED7C243985FC0022EBF1 /* APIError.swift in Sources */,
-				319D0156243805FD00A34578 /* Films.swift in Sources */,
-				319D0154243804BA00A34578 /* Film.swift in Sources */,
+				319D0154243804BA00A34578 /* FilmModel.swift in Sources */,
 				312A50312437773E00778D6B /* FruitsInteractor.swift in Sources */,
 				312A503A24377D0400778D6B /* FruitDetailViewController.swift in Sources */,
 				312A4FE524376C9000778D6B /* AppDelegate.swift in Sources */,
