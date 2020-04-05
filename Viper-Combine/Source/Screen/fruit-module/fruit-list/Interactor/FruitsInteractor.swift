@@ -12,6 +12,7 @@ import Alamofire
 #warning("Fruit List module’s business logic and handlings.")
 class FruitsInteractor: FruitsInputInteractorProtocol {
     weak var presenter: FruitsOutputInteractorProtocol?
+    private var fruitList: [Fruit] = [Fruit]()
 
     func getFruitList() {
         presenter?.fruitListDidFetch(fruitList: getAllFruitDetail())
@@ -19,19 +20,6 @@ class FruitsInteractor: FruitsInputInteractorProtocol {
 
     // MARK: Call API fetch film (cause have no Fruit API)
     func getAllFruitDetail() -> [Fruit] {
-
-        callAPI()
-
-        var fruitList: [Fruit] = [Fruit]()
-        let allFruitDetail: [[String: String]] = [["name": "Orange","vitamin": "Vitain C"], ["name": "Watermelon","vitamin": "Vitain A"], ["name": "Banana","vitamin": "Vitain B6"], ["name": "Apple","vitamin": "Vitain C"]]
-
-        for item in allFruitDetail {
-            fruitList.append(Fruit(attributes: item))
-        }
-        return fruitList
-    }
-
-    private func callAPI(isUseStub: Bool = false) {
         let provider: FilmsProvider = FilmsProvider()
         provider.fetchFilms { [] result in
             switch result {
@@ -41,11 +29,22 @@ class FruitsInteractor: FruitsInputInteractorProtocol {
                     return
                 }
                 print("data: \(data)")
-                print("Fetch data ok")
+                data.all.forEach { film in
+                    let item: [String: String] = ["name": film.title,"vitamin": film.producer]
+                    self.fruitList.append(Fruit(attributes: item))
+                }
+                #warning("Still not receive data. Because response time delay.")
             case .error(let e):
                 print("Error happen: \(e.localizedDescription)")
             }
         }
+
+        let allFruitDetail: [[String: String]] = [["name": "Watermelon","vitamin": "Vitain A"], ["name": "Banana","vitamin": "Vitain B6"], ["name": "Apple","vitamin": "Vitain C"]]
+
+        for item in allFruitDetail {
+            fruitList.append(Fruit(attributes: item))
+        }
+        return fruitList
     }
 }
 
