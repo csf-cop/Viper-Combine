@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1B4B4155ED5F791EDDDCEEFD /* Pods_Viper_Combine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FACAEEB2AD8EB25B11BC6E /* Pods_Viper_Combine.framework */; };
+		311939E5243A1E10006B3B0C /* APIFilm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311939E4243A1E10006B3B0C /* APIFilm.swift */; };
+		311939E8243A1E76006B3B0C /* DictionaryExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311939E7243A1E76006B3B0C /* DictionaryExt.swift */; };
 		312A4FE524376C9000778D6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312A4FE424376C9000778D6B /* AppDelegate.swift */; };
 		312A4FEB24376C9100778D6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 312A4FEA24376C9100778D6B /* Assets.xcassets */; };
 		312A4FEE24376C9100778D6B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 312A4FED24376C9100778D6B /* Preview Assets.xcassets */; };
@@ -29,19 +31,15 @@
 		312A50462437815C00778D6B /* FruitsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312A50452437815C00778D6B /* FruitsRouter.swift */; };
 		319D0154243804BA00A34578 /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319D0153243804BA00A34578 /* FilmModel.swift */; };
 		319D01582438064400A34578 /* FilmResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 319D01572438064400A34578 /* FilmResponse.json */; };
-		31A1ED78243984E80022EBF1 /* APIRequestRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1ED77243984E80022EBF1 /* APIRequestRepresentable.swift */; };
 		31A1ED7A243985C60022EBF1 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1ED79243985C60022EBF1 /* API.swift */; };
 		31A1ED7C243985FC0022EBF1 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1ED7B243985FC0022EBF1 /* APIError.swift */; };
 		31A1ED7E2439861E0022EBF1 /* HTTPStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1ED7D2439861E0022EBF1 /* HTTPStatus.swift */; };
 		31A1ED82243986780022EBF1 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1ED81243986780022EBF1 /* Environment.swift */; };
 		31A1ED84243986C90022EBF1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1ED83243986C90022EBF1 /* App.swift */; };
-		31A1ED86243989030022EBF1 /* APIRequestRepresentableOriginal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1ED85243989030022EBF1 /* APIRequestRepresentableOriginal.swift */; };
 		31A1ED892439893B0022EBF1 /* GPRespose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1ED882439893B0022EBF1 /* GPRespose.swift */; };
 		31A1ED8B24398AE00022EBF1 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1ED8A24398AE00022EBF1 /* Device.swift */; };
 		31A1ED8E24398B1C0022EBF1 /* SecurePreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1ED8D24398B1C0022EBF1 /* SecurePreference.swift */; };
 		31A1ED9024398B6A0022EBF1 /* SaveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1ED8F24398B6A0022EBF1 /* SaveKey.swift */; };
-		31A1ED9224398EFF0022EBF1 /* FilmsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1ED9124398EFF0022EBF1 /* FilmsProvider.swift */; };
-		31A1ED9424398FC00022EBF1 /* FilmsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1ED9324398FC00022EBF1 /* FilmsRequest.swift */; };
 		31A1EDD22439B8FD0022EBF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1EDD12439B8FD0022EBF1 /* SceneDelegate.swift */; };
 		AF6AE68576847A7E620E57E4 /* Pods_Viper_Combine_Viper_CombineUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCAF3FDD702CBE0598907DC /* Pods_Viper_Combine_Viper_CombineUITests.framework */; };
 		C3BE5B474272A20F4D44E5CF /* Pods_Viper_CombineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8AC0BC44ED3FC65621BABF2 /* Pods_Viper_CombineTests.framework */; };
@@ -67,6 +65,8 @@
 /* Begin PBXFileReference section */
 		0CBA87C23C9CB95BEEA8E2FD /* Pods-Viper-Combine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viper-Combine.release.xcconfig"; path = "Target Support Files/Pods-Viper-Combine/Pods-Viper-Combine.release.xcconfig"; sourceTree = "<group>"; };
 		0E4B41CE6E315D9CBD408E8D /* Pods-Viper-CombineTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viper-CombineTests.release.xcconfig"; path = "Target Support Files/Pods-Viper-CombineTests/Pods-Viper-CombineTests.release.xcconfig"; sourceTree = "<group>"; };
+		311939E4243A1E10006B3B0C /* APIFilm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFilm.swift; sourceTree = "<group>"; };
+		311939E7243A1E76006B3B0C /* DictionaryExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExt.swift; sourceTree = "<group>"; };
 		312A4FE124376C9000778D6B /* Viper-Combine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Viper-Combine.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		312A4FE424376C9000778D6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		312A4FEA24376C9100778D6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,19 +96,15 @@
 		312A50452437815C00778D6B /* FruitsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitsRouter.swift; sourceTree = "<group>"; };
 		319D0153243804BA00A34578 /* FilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
 		319D01572438064400A34578 /* FilmResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FilmResponse.json; sourceTree = "<group>"; };
-		31A1ED77243984E80022EBF1 /* APIRequestRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestRepresentable.swift; sourceTree = "<group>"; };
 		31A1ED79243985C60022EBF1 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		31A1ED7B243985FC0022EBF1 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		31A1ED7D2439861E0022EBF1 /* HTTPStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatus.swift; sourceTree = "<group>"; };
 		31A1ED81243986780022EBF1 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		31A1ED83243986C90022EBF1 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		31A1ED85243989030022EBF1 /* APIRequestRepresentableOriginal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestRepresentableOriginal.swift; sourceTree = "<group>"; };
 		31A1ED882439893B0022EBF1 /* GPRespose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPRespose.swift; sourceTree = "<group>"; };
 		31A1ED8A24398AE00022EBF1 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		31A1ED8D24398B1C0022EBF1 /* SecurePreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurePreference.swift; sourceTree = "<group>"; };
 		31A1ED8F24398B6A0022EBF1 /* SaveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveKey.swift; sourceTree = "<group>"; };
-		31A1ED9124398EFF0022EBF1 /* FilmsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsProvider.swift; sourceTree = "<group>"; };
-		31A1ED9324398FC00022EBF1 /* FilmsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsRequest.swift; sourceTree = "<group>"; };
 		31A1EDD12439B8FD0022EBF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6BCAF3FDD702CBE0598907DC /* Pods_Viper_Combine_Viper_CombineUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Viper_Combine_Viper_CombineUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A78DF0822694C08D2945F85 /* Pods-Viper-CombineTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viper-CombineTests.debug.xcconfig"; path = "Target Support Files/Pods-Viper-CombineTests/Pods-Viper-CombineTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +151,14 @@
 				D8AC0BC44ED3FC65621BABF2 /* Pods_Viper_CombineTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		311939E6243A1E69006B3B0C /* Ext */ = {
+			isa = PBXGroup;
+			children = (
+				311939E7243A1E76006B3B0C /* DictionaryExt.swift */,
+			);
+			path = Ext;
 			sourceTree = "<group>";
 		};
 		312A4FD824376C9000778D6B = {
@@ -388,9 +392,8 @@
 			children = (
 				31A1ED79243985C60022EBF1 /* API.swift */,
 				31A1ED7B243985FC0022EBF1 /* APIError.swift */,
-				31A1ED77243984E80022EBF1 /* APIRequestRepresentable.swift */,
-				31A1ED85243989030022EBF1 /* APIRequestRepresentableOriginal.swift */,
 				31A1ED7D2439861E0022EBF1 /* HTTPStatus.swift */,
+				311939E4243A1E10006B3B0C /* APIFilm.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -398,7 +401,6 @@
 		31A1ED752439845A0022EBF1 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				31A1ED9324398FC00022EBF1 /* FilmsRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -406,7 +408,6 @@
 		31A1ED76243984610022EBF1 /* Provider */ = {
 			isa = PBXGroup;
 			children = (
-				31A1ED9124398EFF0022EBF1 /* FilmsProvider.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -443,6 +444,7 @@
 		31A1ED8C24398B120022EBF1 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				311939E6243A1E69006B3B0C /* Ext */,
 				31A1ED8D24398B1C0022EBF1 /* SecurePreference.swift */,
 			);
 			path = Library;
@@ -712,17 +714,15 @@
 				312A50312437773E00778D6B /* FruitsInteractor.swift in Sources */,
 				312A503A24377D0400778D6B /* FruitDetailViewController.swift in Sources */,
 				312A4FE524376C9000778D6B /* AppDelegate.swift in Sources */,
-				31A1ED78243984E80022EBF1 /* APIRequestRepresentable.swift in Sources */,
 				31A1ED892439893B0022EBF1 /* GPRespose.swift in Sources */,
+				311939E5243A1E10006B3B0C /* APIFilm.swift in Sources */,
 				312A5022243773B300778D6B /* FruitsViewController.swift in Sources */,
 				31A1EDD22439B8FD0022EBF1 /* SceneDelegate.swift in Sources */,
 				31A1ED7E2439861E0022EBF1 /* HTTPStatus.swift in Sources */,
 				312A50462437815C00778D6B /* FruitsRouter.swift in Sources */,
+				311939E8243A1E76006B3B0C /* DictionaryExt.swift in Sources */,
 				31A1ED84243986C90022EBF1 /* App.swift in Sources */,
 				31A1ED8E24398B1C0022EBF1 /* SecurePreference.swift in Sources */,
-				31A1ED9224398EFF0022EBF1 /* FilmsProvider.swift in Sources */,
-				31A1ED86243989030022EBF1 /* APIRequestRepresentableOriginal.swift in Sources */,
-				31A1ED9424398FC00022EBF1 /* FilmsRequest.swift in Sources */,
 				31A1ED9024398B6A0022EBF1 /* SaveKey.swift in Sources */,
 				312A502B2437763700778D6B /* FruitsPresenter.swift in Sources */,
 				312A50282437756800778D6B /* FruitsProtocol.swift in Sources */,
