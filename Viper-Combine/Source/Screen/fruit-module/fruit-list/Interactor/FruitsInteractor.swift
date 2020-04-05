@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import OHHTTPStubs
 
 #warning("Fruit List module’s business logic and handlings.")
 class FruitsInteractor: FruitsInputInteractorProtocol {
@@ -23,18 +22,6 @@ class FruitsInteractor: FruitsInputInteractorProtocol {
 
         callAPI()
 
-        let url: String = "https://swapi.co/api/films"
-        // MARK: Method Chaining - Connecting the response of one method as the input of another.
-        AF.request(url)
-            .validate()
-            .responseDecodable(of: Films.self) { (response) in
-                guard let films = response.value else { return }
-                print(films.all[0].title)
-//                for item in films.all {
-//                    fruitList.append(Fruit(attributes: ["name": item.title,"vitamin": item.producer]))
-//                }
-        }
-
         var fruitList: [Fruit] = [Fruit]()
         let allFruitDetail: [[String: String]] = [["name": "Orange","vitamin": "Vitain C"], ["name": "Watermelon","vitamin": "Vitain A"], ["name": "Banana","vitamin": "Vitain B6"], ["name": "Apple","vitamin": "Vitain C"]]
 
@@ -45,6 +32,26 @@ class FruitsInteractor: FruitsInputInteractorProtocol {
     }
 
     private func callAPI(isUseStub: Bool = false) {
+        let provider: FilmsProvider = FilmsProvider()
+        provider.fetchFilms(isUseStub: true) { [weak self] result in
+            guard let this = self else {
+                print("This fail.")
+                return
+            }
+            switch result {
+            case .success(let value):
+                guard let data: Films = value else {
+                    print("Cast fail.")
+                    return
+                }
+                print("data: \(data)")
+                print("Fetch data ok")
+            case .error(let e):
+                print("Error happen: \(e.localizedDescription)")
+            }
+        }
+        
+        
         let url: String = "https://swapi.co/api/films"
         #warning("converting the response into JSON.")
 //        let request = AF.request(url)
@@ -57,6 +64,17 @@ class FruitsInteractor: FruitsInputInteractorProtocol {
 //          guard let films = response.value else { return }
 //          print(films.all[0].title)
 //        }
+        //        let url: String = "https://swapi.co/api/films"
+        //        // MARK: Method Chaining - Connecting the response of one method as the input of another.
+        //        AF.request(url)
+        //            .validate()
+        //            .responseDecodable(of: Films.self) { (response) in
+        //                guard let films = response.value else { return }
+        //                print(films.all[0].title)
+        ////                for item in films.all {
+        ////                    fruitList.append(Fruit(attributes: ["name": item.title,"vitamin": item.producer]))
+        ////                }
+        //        }
     }
 }
 
