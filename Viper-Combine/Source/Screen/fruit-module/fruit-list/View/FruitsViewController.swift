@@ -10,11 +10,10 @@ import UIKit
 
 #warning("Fruit List page UI.")
 final class FruitsViewController: UIViewController {
-
     @IBOutlet private weak var tableView: UITableView!
 
+    private var fruits: [Fruit] = []
     var presenter: FruitsPresenterProtocol?
-    var fruitList = [Fruit]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +22,7 @@ final class FruitsViewController: UIViewController {
         configTableUI()
         // Do any additional setup after loading the view.
         FruitsRouter.createFruitListModule(fruitListRef: self)
-        presenter?.viewDidLoad()
+        presenter?.fetFruits()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +32,7 @@ final class FruitsViewController: UIViewController {
 }
 
 extension FruitsViewController {
+
     private func configTableUI() {
         tableView.register(UITableViewCell.self)
         tableView.delegate = self
@@ -44,19 +44,19 @@ extension FruitsViewController {
 
 extension FruitsViewController: FruitsViewProtocol {
     func showFruits(with fruits: [Fruit]) {
-        fruitList = fruits
+        self.fruits = fruits
         tableView.reloadData()
     }
 }
 
 extension FruitsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fruitList.count
+        return fruits.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeue(UITableViewCell.self)
-        let fruit = fruitList[indexPath.row]
+        let fruit = fruits[indexPath.row]
         cell.textLabel?.text = fruit.name
         cell.detailTextLabel?.text = fruit.vitamin
         return cell
@@ -65,7 +65,7 @@ extension FruitsViewController: UITableViewDataSource {
 
 extension FruitsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter?.showFruitSelection(with: fruitList[indexPath.row], from: self)
+        presenter?.showFruitSelection(with: fruits[indexPath.row], from: self)
     }
 }
 

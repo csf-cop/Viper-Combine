@@ -9,7 +9,7 @@
 import UIKit
 
 #warning("Fruit List module’s communication handler, we can tease the presenter like that as it handles all the communication.")
-class FruitsPresenter: FruitsPresenterProtocol {
+final class FruitsPresenter: FruitsPresenterProtocol {
     var router: FruitsRouterProtocol?
     weak var view: FruitsViewProtocol?
     var interactor: FruitsInputInteractorProtocol?
@@ -18,11 +18,7 @@ class FruitsPresenter: FruitsPresenterProtocol {
         router?.pushToFruitDetail(with: fruit, from: view)
     }
 
-    func viewDidLoad() {
-        self.loadFruitList()
-    }
-
-    func loadFruitList() {
+    func fetFruits() {
         interactor?.getFruitList()
     }
 }

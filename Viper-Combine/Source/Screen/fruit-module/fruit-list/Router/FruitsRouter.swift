@@ -9,7 +9,7 @@
 import UIKit
 
 #warning("Fruit router.")
-class FruitsRouter: FruitsRouterProtocol {
+class FruitsRouter: FruitsRouterProtocol, ObservableObject {
     func pushToFruitDetail(with fruit: Fruit,from view: UIViewController) {
         let fruitDetailViewController: FruitDetailViewController = FruitDetailViewController()
         FruitDetailRouter.createFruitDetailModule(with: fruitDetailViewController, and: fruit)

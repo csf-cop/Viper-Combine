@@ -19,7 +19,7 @@ protocol FruitsPresenterProtocol: class {
     var view: FruitsViewProtocol? { get set }
     var router: FruitsRouterProtocol? { get set }
 
-    func viewDidLoad()
+    func fetFruits()
     func showFruitSelection(with fruit: Fruit, from view: UIViewController)
 }
 

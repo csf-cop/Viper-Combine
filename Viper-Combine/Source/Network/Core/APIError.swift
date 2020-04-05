@@ -16,6 +16,11 @@ enum ApiError: Error {
     case lostNetwork
     case noResponse(Error?)
     case serverError(Error)
+    case error(String)
+    case errorURL
+    case invalidResponse
+    case errorParsing
+    case unknown
 
     var message: String {
         switch self {
@@ -33,6 +38,16 @@ enum ApiError: Error {
             return "Missing Data"
         case .serverError:
             return getMessageError()
+        case .error(let string):
+            return string
+        case .errorURL:
+            return "URL String is error."
+        case .invalidResponse:
+            return "Invalid response"
+        case .errorParsing:
+            return "Failed parsing response from server"
+        case .unknown:
+            return "An unknown error occurred"
         }
     }
 
