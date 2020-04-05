@@ -21,24 +21,13 @@ class FruitsInteractor: FruitsInputInteractorProtocol, ObservableObject {
 
     // MARK: Call API fetch film (cause have no Fruit API)
     func getAllFruitDetail() -> [Fruit] {
-        let provider: FilmsProvider = FilmsProvider()
-        provider.fetchFilms { [] result in
-            switch result {
-            case .success(let value):
-                guard let data: FilmCollections = value else {
-                    print("Cast fail.")
-                    return
-                }
-                print("data: \(data)")
-                data.all.forEach { film in
-                    let item: [String: String] = ["name": film.title,"vitamin": film.producer]
-                    self.fruitList.append(Fruit(attributes: item))
-                }
-                #warning("Still not receive data. Because response time delay.")
-            case .error(let e):
-                print("Error happen: \(e.localizedDescription)")
-            }
-        }
+        // assign
+//        api.comingSoon(limit: 100)
+//            .receive(on: DispatchQueue.main)
+//            .map { $0.fruits }
+//            .catch{ _ in Empty() }
+//            .assign(to: \.fruitList, on: self)
+//            .store(in: &subscriptions)
         return fruitList
     }
 }

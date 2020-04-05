@@ -9,7 +9,7 @@
 import Foundation
 
 #warning("Model class of our Fruits.")
-struct Fruit: Decodable {
+struct Fruit {
     var name: String = ""
     var vitamin: String = ""
     

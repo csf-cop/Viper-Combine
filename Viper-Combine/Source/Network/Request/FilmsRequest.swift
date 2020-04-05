@@ -9,8 +9,8 @@
 import Foundation
 import Alamofire
 
-struct FetchFilmsRequest: APIRequestRepresentableOriginal {
-    typealias CodableType = FilmCollections
-    static var method: Alamofire.HTTPMethod = .get
-    static var endpoint: Api.Endpoint = .fetFilms
-}
+//struct FetchFilmsRequest: APIRequestRepresentableOriginal {
+//    typealias CodableType = FilmCollections
+//    static var method: Alamofire.HTTPMethod = .get
+//    static var endpoint: Api.Endpoint = .fetFilms
+//}

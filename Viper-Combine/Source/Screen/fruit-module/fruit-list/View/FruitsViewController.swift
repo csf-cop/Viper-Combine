@@ -15,12 +15,13 @@ final class FruitsViewController: UIViewController {
 
     private var subscriptions = Set<AnyCancellable>()
     var presenter: FruitsPresenterProtocol?
-    var fruitList: [Fruit] = [] {
+    var fruits: [Fruit] = [] {
         didSet {
             self.tableView.reloadData()
         }
     }
 
+    private var api = APIFilm()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,7 +29,7 @@ final class FruitsViewController: UIViewController {
         configTableUI()
         // Do any additional setup after loading the view.
         presenter?.viewDidLoad()
-//        FruitsRouter.createFruitListModule(fruitListRef: self)
+        callAPI()
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +39,10 @@ final class FruitsViewController: UIViewController {
 }
 
 extension FruitsViewController {
+    private func callAPI() {
+        
+    }
+
     private func configTableUI() {
         tableView.register(UITableViewCell.self)
         tableView.delegate = self
@@ -49,19 +54,19 @@ extension FruitsViewController {
 
 extension FruitsViewController: FruitsViewProtocol {
     func showFruits(with fruits: [Fruit]) {
-        fruitList = fruits
+        self.fruits = fruits
         tableView.reloadData()
     }
 }
 
 extension FruitsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fruitList.count
+        return fruits.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeue(UITableViewCell.self)
-        let fruit = fruitList[indexPath.row]
+        let fruit = fruits[indexPath.row]
         cell.textLabel?.text = fruit.name
         cell.detailTextLabel?.text = fruit.vitamin
         return cell
@@ -70,7 +75,7 @@ extension FruitsViewController: UITableViewDataSource {
 
 extension FruitsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter?.showFruitSelection(with: fruitList[indexPath.row], from: self)
+        presenter?.showFruitSelection(with: fruits[indexPath.row], from: self)
     }
 }
 
@@ -92,5 +97,53 @@ extension UITableView {
             fatalError("`\(name)` is not registed")
         }
         return cell
+    }
+}
+
+struct APIFilm {
+  
+  //MARK: EndPoint
+    enum EndPoint {
+        static let baseURL = URL(string: "https://swapi.co")!
+        case fetchFilmCollection
+
+        var url: URL {
+            switch self {
+            case .fetchFilmCollection:
+                return EndPoint.baseURL.appendingPathComponent("/api/films/")
+            }
+        }
+    }
+  
+  //MARK: Properties
+  private let decoder = JSONDecoder()
+  private let apiQueue = DispatchQueue(label: "API", qos: .default, attributes: .concurrent)
+  
+  //MARK: init
+  init() { }
+  
+  //MARK: Public methods
+  func fetchFilms(limit: Int) -> AnyPublisher<FilmCollections, ApiError> {
+    return URLSession.shared
+        .dataTaskPublisher(for: EndPoint.fetchFilmCollection.url)
+        .subscribe(on: apiQueue)
+        .tryMap { output in
+            guard let response = output.response as? HTTPURLResponse, response.statusCode == 200 else {
+                throw ApiError.invalidResponse
+            }
+            return output.data
+        }
+        .decode(type: FilmCollections.self, decoder: JSONDecoder())
+        .mapError { error -> ApiError in
+            switch error {
+            case is URLError:
+              return .errorURL
+            case is DecodingError:
+              return .errorParsing
+            default:
+              return error as? ApiError ?? .unknown
+            }
+        }
+        .eraseToAnyPublisher()
     }
 }
