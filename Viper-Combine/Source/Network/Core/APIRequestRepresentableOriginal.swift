@@ -7,88 +7,76 @@
 //
 
 import Alamofire
+import Combine
 
-protocol APIRequestRepresentableOriginal: APIRequestRepresentable {
-    static func request(parameters: [String: Any]?, callback: @escaping (Result<CodableType>) -> Void) -> DataRequest?
+protocol APIRequestRepresentableOriginal {
+    static var endpoint: Api.Endpoint { get set }
+    static var url: String { get }
+
+    static func request(parameters: [String: Any]?) -> AnyPublisher<FilmCollections, ApiError>
 }
 
 extension APIRequestRepresentableOriginal {
-    static func request(parameters: [String: Any]? = nil,
-                        callback: @escaping (Result<CodableType>) -> Void) -> DataRequest? {
-        #if os(iOS)
-        guard Network.shared.isReachable else {
-            callback(.error(.lostNetwork))
-            return nil
-        }
-        #endif
-
-        var parameters: [String: Any] = commonParameters
-        parameters.updateValues(parameters)
-        if isEnableLog {
-            logRequest(data: parameters)
-        }
-
-        var encodingType: ParameterEncoding = JSONEncoding.default
-        if method == .get {
-            parameters = [:]
-            encodingType = URLEncoding.default
-        }
-
-        let queue: DispatchQueue = DispatchQueue(label: App.bundleID + UUID().uuidString,
-                                                 qos: .userInitiated,
-                                                 attributes: .concurrent,
-                                                 autoreleaseFrequency: .inherit,
-                                                 target: nil)
-
-        return AF.request(url,
-                          method: method,
-                          parameters: parameters,
-                          encoding: encodingType,
-                          headers: defaultHeader).responseJSON(queue: queue,
-                                                               options: .allowFragments,
-                                                               completionHandler: handleCompletion(callback))
+    static var url: String {
+        return Api.generateUrl(endpoint: endpoint)
     }
 
-    private static func handleCompletion(_ callback: @escaping (Result<CodableType>) -> Void) -> ((AFDataResponse<Any>) -> Void) {
-        return { responseData in
-            if isEnableLog {
-                logResponse(data: responseData)
+    static func request(parameters: [String: Any]?) -> AnyPublisher<FilmCollections, ApiError> {
+        return URLSession.shared
+        .dataTaskPublisher(for: URL(string: url)!)
+        .subscribe(on: DispatchQueue(label: "API", qos: .default, attributes: .concurrent))
+        .tryMap { output in
+            guard let response = output.response as? HTTPURLResponse, response.statusCode == 200 else {
+              throw ApiError.invalidResponse
             }
-
-            if let error: Error = responseData.error {
-                DispatchQueue.main.async {
-                    callback(.error(.serverError(error)))
-                }
-                return
-            }
-
-            guard let response: HTTPURLResponse = responseData.response else {
-                let err: NSError = NSError(domain: url, code: 0, userInfo: nil)
-                DispatchQueue.main.async {
-                    callback(.error(.noResponse(err)))
-                }
-                return
-            }
-
-            let statusCode: Int = response.statusCode
-            guard let data: Data = responseData.data else {
-                let err: NSError = NSError(domain: url, code: statusCode, userInfo: nil)
-                DispatchQueue.main.async {
-                    callback(.error(.emptyData(err)))
-                }
-                return
-            }
-            if let decoded: CodableType = try? JSONDecoder().decode(CodableType.self, from: data) {
-                DispatchQueue.main.async {
-                    callback(.success(decoded))
-                }
-                return
-            } else {
-                DispatchQueue.main.async {
-                    callback(.error(.missingData))
-                }
-            }
+            return output.data
         }
+        .mapError { error -> ApiError in
+              switch error {
+              case is URLError:
+                return .errorURL
+              case is DecodingError:
+                return .errorParsing
+              default:
+                return error as? ApiError ?? .unknown
+              }
+            }
+        .eraseToAnyPublisher()
     }
+//    static func request(parameters: [String: Any]? = nil,
+//                        callback: @escaping (Result<CodableType>) -> Void) -> DataRequest? {
+//        #if os(iOS)
+//        guard Network.shared.isReachable else {
+//            callback(.error(.lostNetwork))
+//            return nil
+//        }
+//        #endif
+//
+//        var parameters: [String: Any] = commonParameters
+//        parameters.updateValues(parameters)
+//        if isEnableLog {
+//            logRequest(data: parameters)
+//        }
+//
+//        var encodingType: ParameterEncoding = JSONEncoding.default
+//        if method == .get {
+//            parameters = [:]
+//            encodingType = URLEncoding.default
+//        }
+//
+//        let queue: DispatchQueue = DispatchQueue(label: App.bundleID + UUID().uuidString,
+//                                                 qos: .userInitiated,
+//                                                 attributes: .concurrent,
+//                                                 autoreleaseFrequency: .inherit,
+//                                                 target: nil)
+//
+//        return AF.request(url,
+//                          method: method,
+//                          parameters: parameters,
+//                          encoding: encodingType,
+//                          headers: defaultHeader)..responseJSON(queue: queue,
+//                                                               options: .allowFragments,
+//            completionHandler: handleCompletion(callback)).
+//    }
 }
 

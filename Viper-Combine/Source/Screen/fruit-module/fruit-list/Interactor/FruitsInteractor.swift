@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import Combine
 
 #warning("Fruit List module’s business logic and handlings.")
 class FruitsInteractor: FruitsInputInteractorProtocol, ObservableObject {
@@ -37,12 +38,6 @@ class FruitsInteractor: FruitsInputInteractorProtocol, ObservableObject {
             case .error(let e):
                 print("Error happen: \(e.localizedDescription)")
             }
-        }
-
-        let allFruitDetail: [[String: String]] = [["name": "Watermelon","vitamin": "Vitain A"], ["name": "Banana","vitamin": "Vitain B6"], ["name": "Apple","vitamin": "Vitain C"]]
-
-        for item in allFruitDetail {
-            fruitList.append(Fruit(attributes: item))
         }
         return fruitList
     }

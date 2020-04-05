@@ -10,12 +10,13 @@ import Foundation
 import Alamofire
 #if os(iOS)
 import OHHTTPStubs
+import Combine
 #endif
 
 final class FilmsProvider {
 
     @discardableResult
-    func fetchFilms(isUseStub: Bool = false, callback: @escaping (Result<FilmCollections>) -> Void) -> DataRequest? {
+    func fetchFilms(isUseStub: Bool = false, callback: @escaping (Result<FilmCollections>) -> Void) -> AnyPublisher<FilmCollections, ApiError> {
         #if os(iOS)
         if isUseStub {
             stub(condition: isHost(Environment.host)) { _ in
@@ -25,6 +26,6 @@ final class FilmsProvider {
             }
         }
         #endif
-        return FetchFilmsRequest.request(callback: callback)
+        return FetchFilmsRequest.request(parameters: nil)
     }
 }

@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import Combine
 
 #warning("Fruit List page UI.")
 final class FruitsViewController: UIViewController {
-
     @IBOutlet private weak var tableView: UITableView!
 
+    private var subscriptions = Set<AnyCancellable>()
     var presenter: FruitsPresenterProtocol?
-    var fruitList = [Fruit]()
+    var fruitList: [Fruit] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +27,8 @@ final class FruitsViewController: UIViewController {
         title = "Fruits Screen"
         configTableUI()
         // Do any additional setup after loading the view.
-        FruitsRouter.createFruitListModule(fruitListRef: self)
         presenter?.viewDidLoad()
+//        FruitsRouter.createFruitListModule(fruitListRef: self)
     }
 
     override func didReceiveMemoryWarning() {
