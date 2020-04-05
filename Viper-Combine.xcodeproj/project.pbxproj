@@ -42,6 +42,7 @@
 		31A1ED9024398B6A0022EBF1 /* SaveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1ED8F24398B6A0022EBF1 /* SaveKey.swift */; };
 		31A1ED9224398EFF0022EBF1 /* FilmsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1ED9124398EFF0022EBF1 /* FilmsProvider.swift */; };
 		31A1ED9424398FC00022EBF1 /* FilmsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1ED9324398FC00022EBF1 /* FilmsRequest.swift */; };
+		31A1EDD22439B8FD0022EBF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1EDD12439B8FD0022EBF1 /* SceneDelegate.swift */; };
 		AF6AE68576847A7E620E57E4 /* Pods_Viper_Combine_Viper_CombineUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCAF3FDD702CBE0598907DC /* Pods_Viper_Combine_Viper_CombineUITests.framework */; };
 		C3BE5B474272A20F4D44E5CF /* Pods_Viper_CombineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8AC0BC44ED3FC65621BABF2 /* Pods_Viper_CombineTests.framework */; };
 /* End PBXBuildFile section */
@@ -108,6 +109,7 @@
 		31A1ED8F24398B6A0022EBF1 /* SaveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveKey.swift; sourceTree = "<group>"; };
 		31A1ED9124398EFF0022EBF1 /* FilmsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsProvider.swift; sourceTree = "<group>"; };
 		31A1ED9324398FC00022EBF1 /* FilmsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsRequest.swift; sourceTree = "<group>"; };
+		31A1EDD12439B8FD0022EBF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6BCAF3FDD702CBE0598907DC /* Pods_Viper_Combine_Viper_CombineUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Viper_Combine_Viper_CombineUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A78DF0822694C08D2945F85 /* Pods-Viper-CombineTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viper-CombineTests.debug.xcconfig"; path = "Target Support Files/Pods-Viper-CombineTests/Pods-Viper-CombineTests.debug.xcconfig"; sourceTree = "<group>"; };
 		875B674C3F71BCEF26340BA5 /* Pods-Viper-Combine-Viper-CombineUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viper-Combine-Viper-CombineUITests.release.xcconfig"; path = "Target Support Files/Pods-Viper-Combine-Viper-CombineUITests/Pods-Viper-Combine-Viper-CombineUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				31A1ED802439866F0022EBF1 /* Define */,
 				31A1ED732439844A0022EBF1 /* Network */,
 				31A1ED7F243986530022EBF1 /* Screen */,
+				31A1EDD12439B8FD0022EBF1 /* SceneDelegate.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -712,6 +715,7 @@
 				31A1ED78243984E80022EBF1 /* APIRequestRepresentable.swift in Sources */,
 				31A1ED892439893B0022EBF1 /* GPRespose.swift in Sources */,
 				312A5022243773B300778D6B /* FruitsViewController.swift in Sources */,
+				31A1EDD22439B8FD0022EBF1 /* SceneDelegate.swift in Sources */,
 				31A1ED7E2439861E0022EBF1 /* HTTPStatus.swift in Sources */,
 				312A50462437815C00778D6B /* FruitsRouter.swift in Sources */,
 				31A1ED84243986C90022EBF1 /* App.swift in Sources */,
@@ -812,7 +816,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -866,7 +870,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

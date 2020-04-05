@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: Define fomular data.
 struct GPResponse<Model>: Codable where Model: Codable {
     var error: String?
     var type: String?

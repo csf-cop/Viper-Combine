@@ -10,9 +10,9 @@ import Foundation
 import Alamofire
 
 #warning("Fruit List module’s business logic and handlings.")
-class FruitsInteractor: FruitsInputInteractorProtocol {
+class FruitsInteractor: FruitsInputInteractorProtocol, ObservableObject {
     weak var presenter: FruitsOutputInteractorProtocol?
-    private var fruitList: [Fruit] = [Fruit]()
+    @Published var fruitList: [Fruit] = [Fruit]()
 
     func getFruitList() {
         presenter?.fruitListDidFetch(fruitList: getAllFruitDetail())
