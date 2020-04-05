@@ -52,7 +52,7 @@ class FruitsInteractor: FruitsInputInteractorProtocol {
         }
         
         
-        let url: String = "https://swapi.co/api/films"
+//        let url: String = "https://swapi.co/api/films"
         #warning("converting the response into JSON.")
 //        let request = AF.request(url)
 //        request.responseJSON { (data) in

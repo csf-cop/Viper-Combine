@@ -33,7 +33,7 @@ final class Api {
         var string: String {
             switch self {
             case .fetFilms:
-                return "/api_base/"
+                return "/api/films/"
             }
         }
     }
