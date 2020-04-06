@@ -5,10 +5,8 @@ target 'Viper-Combine' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   project 'Viper-Combine.xcodeproj'
-  pod 'Alamofire'
   pod 'Charts'
   pod 'KeychainAccess'
-  pod 'OHHTTPStubs/Swift'
   pod 'IQKeyboardManagerSwift'
 
   # Pods for Viper-Combine

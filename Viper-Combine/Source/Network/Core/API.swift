@@ -24,8 +24,34 @@ import Alamofire
 #endif
 
 final class Api {
+
+    enum HTTPMethod: String {
+        case get
+        case post
+        case push
+        case delete
+        case option
+        case patch
+
+        var string: String {
+            switch self {
+            case .get:
+                return "GET"
+            case .post:
+                return "POST"
+            case .push:
+                return "PUSH"
+            case .delete:
+                return "DELETE"
+            case .option:
+                return "OPTION"
+            case .patch:
+                return "PATCH"
+            }
+        }
+    }
+
     static let baseUrl: String = Environment.baseUrl
-    static let otherBaseUrl: String = Environment.baseUrl
 
     enum Endpoint {
         case fetFilms
@@ -38,16 +64,12 @@ final class Api {
         }
     }
 
-    static func generateUrl(endpoint: Endpoint) -> String {
-        return "\(Api.baseUrl)\(endpoint.string)"
-    }
-
-    static func generateUrlWithParam(endpoint: Endpoint, params: [String]) -> String {
+    static func generateUrl(endpoint: Endpoint, params: [String]) -> String {
         var path: String = ""
         for param in params {
             path += "/\(param)"
         }
-        return "\(Api.otherBaseUrl)\(endpoint.string)\(path)"
+        return "\(Api.baseUrl)\(endpoint.string)\(path)"
     }
 }
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1B4B4155ED5F791EDDDCEEFD /* Pods_Viper_Combine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FACAEEB2AD8EB25B11BC6E /* Pods_Viper_Combine.framework */; };
-		311939E5243A1E10006B3B0C /* APIFilm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311939E4243A1E10006B3B0C /* APIFilm.swift */; };
 		311939E8243A1E76006B3B0C /* DictionaryExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311939E7243A1E76006B3B0C /* DictionaryExt.swift */; };
 		312A4FE524376C9000778D6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312A4FE424376C9000778D6B /* AppDelegate.swift */; };
 		312A4FEB24376C9100778D6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 312A4FEA24376C9100778D6B /* Assets.xcassets */; };
@@ -41,6 +40,14 @@
 		31A1ED8E24398B1C0022EBF1 /* SecurePreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1ED8D24398B1C0022EBF1 /* SecurePreference.swift */; };
 		31A1ED9024398B6A0022EBF1 /* SaveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1ED8F24398B6A0022EBF1 /* SaveKey.swift */; };
 		31A1EDD22439B8FD0022EBF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1EDD12439B8FD0022EBF1 /* SceneDelegate.swift */; };
+		31A3889C243AF116009895C4 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A3889B243AF116009895C4 /* ApiManager.swift */; };
+		31A3889E243AF261009895C4 /* OptionalExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A3889D243AF261009895C4 /* OptionalExt.swift */; };
+		31A388A2243AF981009895C4 /* FilmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A388A1243AF981009895C4 /* FilmProvider.swift */; };
+		31A388A4243AFA58009895C4 /* FilmRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A388A3243AFA58009895C4 /* FilmRequest.swift */; };
+		31A388A6243AFA76009895C4 /* APIRequestCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A388A5243AFA76009895C4 /* APIRequestCombine.swift */; };
+		31A388A8243B1302009895C4 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A388A7243B1302009895C4 /* APIRequest.swift */; };
+		31A388AA243B1420009895C4 /* APIRequestOriginal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A388A9243B1420009895C4 /* APIRequestOriginal.swift */; };
+		31A388AC243B1C52009895C4 /* DataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A388AB243B1C52009895C4 /* DataExt.swift */; };
 		AF6AE68576847A7E620E57E4 /* Pods_Viper_Combine_Viper_CombineUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCAF3FDD702CBE0598907DC /* Pods_Viper_Combine_Viper_CombineUITests.framework */; };
 		C3BE5B474272A20F4D44E5CF /* Pods_Viper_CombineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8AC0BC44ED3FC65621BABF2 /* Pods_Viper_CombineTests.framework */; };
 /* End PBXBuildFile section */
@@ -65,7 +72,6 @@
 /* Begin PBXFileReference section */
 		0CBA87C23C9CB95BEEA8E2FD /* Pods-Viper-Combine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viper-Combine.release.xcconfig"; path = "Target Support Files/Pods-Viper-Combine/Pods-Viper-Combine.release.xcconfig"; sourceTree = "<group>"; };
 		0E4B41CE6E315D9CBD408E8D /* Pods-Viper-CombineTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viper-CombineTests.release.xcconfig"; path = "Target Support Files/Pods-Viper-CombineTests/Pods-Viper-CombineTests.release.xcconfig"; sourceTree = "<group>"; };
-		311939E4243A1E10006B3B0C /* APIFilm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFilm.swift; sourceTree = "<group>"; };
 		311939E7243A1E76006B3B0C /* DictionaryExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExt.swift; sourceTree = "<group>"; };
 		312A4FE124376C9000778D6B /* Viper-Combine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Viper-Combine.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		312A4FE424376C9000778D6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +112,14 @@
 		31A1ED8D24398B1C0022EBF1 /* SecurePreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurePreference.swift; sourceTree = "<group>"; };
 		31A1ED8F24398B6A0022EBF1 /* SaveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveKey.swift; sourceTree = "<group>"; };
 		31A1EDD12439B8FD0022EBF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		31A3889B243AF116009895C4 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		31A3889D243AF261009895C4 /* OptionalExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalExt.swift; sourceTree = "<group>"; };
+		31A388A1243AF981009895C4 /* FilmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilmProvider.swift; path = "Viper-Combine/Source/Network/Core/FilmProvider.swift"; sourceTree = SOURCE_ROOT; };
+		31A388A3243AFA58009895C4 /* FilmRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilmRequest.swift; path = "Viper-Combine/Source/Network/Core/FilmRequest.swift"; sourceTree = SOURCE_ROOT; };
+		31A388A5243AFA76009895C4 /* APIRequestCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestCombine.swift; sourceTree = "<group>"; };
+		31A388A7243B1302009895C4 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		31A388A9243B1420009895C4 /* APIRequestOriginal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestOriginal.swift; sourceTree = "<group>"; };
+		31A388AB243B1C52009895C4 /* DataExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExt.swift; sourceTree = "<group>"; };
 		6BCAF3FDD702CBE0598907DC /* Pods_Viper_Combine_Viper_CombineUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Viper_Combine_Viper_CombineUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A78DF0822694C08D2945F85 /* Pods-Viper-CombineTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viper-CombineTests.debug.xcconfig"; path = "Target Support Files/Pods-Viper-CombineTests/Pods-Viper-CombineTests.debug.xcconfig"; sourceTree = "<group>"; };
 		875B674C3F71BCEF26340BA5 /* Pods-Viper-Combine-Viper-CombineUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viper-Combine-Viper-CombineUITests.release.xcconfig"; path = "Target Support Files/Pods-Viper-Combine-Viper-CombineUITests/Pods-Viper-Combine-Viper-CombineUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				311939E7243A1E76006B3B0C /* DictionaryExt.swift */,
+				31A3889D243AF261009895C4 /* OptionalExt.swift */,
+				31A388AB243B1C52009895C4 /* DataExt.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -393,7 +409,10 @@
 				31A1ED79243985C60022EBF1 /* API.swift */,
 				31A1ED7B243985FC0022EBF1 /* APIError.swift */,
 				31A1ED7D2439861E0022EBF1 /* HTTPStatus.swift */,
-				311939E4243A1E10006B3B0C /* APIFilm.swift */,
+				31A3889B243AF116009895C4 /* ApiManager.swift */,
+				31A388A5243AFA76009895C4 /* APIRequestCombine.swift */,
+				31A388A7243B1302009895C4 /* APIRequest.swift */,
+				31A388A9243B1420009895C4 /* APIRequestOriginal.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -401,6 +420,7 @@
 		31A1ED752439845A0022EBF1 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				31A388A3243AFA58009895C4 /* FilmRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -408,6 +428,7 @@
 		31A1ED76243984610022EBF1 /* Provider */ = {
 			isa = PBXGroup;
 			children = (
+				31A388A1243AF981009895C4 /* FilmProvider.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -714,22 +735,29 @@
 				312A50312437773E00778D6B /* FruitsInteractor.swift in Sources */,
 				312A503A24377D0400778D6B /* FruitDetailViewController.swift in Sources */,
 				312A4FE524376C9000778D6B /* AppDelegate.swift in Sources */,
+				31A388A4243AFA58009895C4 /* FilmRequest.swift in Sources */,
+				31A3889C243AF116009895C4 /* ApiManager.swift in Sources */,
 				31A1ED892439893B0022EBF1 /* GPRespose.swift in Sources */,
-				311939E5243A1E10006B3B0C /* APIFilm.swift in Sources */,
 				312A5022243773B300778D6B /* FruitsViewController.swift in Sources */,
 				31A1EDD22439B8FD0022EBF1 /* SceneDelegate.swift in Sources */,
 				31A1ED7E2439861E0022EBF1 /* HTTPStatus.swift in Sources */,
 				312A50462437815C00778D6B /* FruitsRouter.swift in Sources */,
 				311939E8243A1E76006B3B0C /* DictionaryExt.swift in Sources */,
+				31A388AA243B1420009895C4 /* APIRequestOriginal.swift in Sources */,
+				31A3889E243AF261009895C4 /* OptionalExt.swift in Sources */,
 				31A1ED84243986C90022EBF1 /* App.swift in Sources */,
+				31A388AC243B1C52009895C4 /* DataExt.swift in Sources */,
 				31A1ED8E24398B1C0022EBF1 /* SecurePreference.swift in Sources */,
 				31A1ED9024398B6A0022EBF1 /* SaveKey.swift in Sources */,
+				31A388A2243AF981009895C4 /* FilmProvider.swift in Sources */,
 				312A502B2437763700778D6B /* FruitsPresenter.swift in Sources */,
+				31A388A6243AFA76009895C4 /* APIRequestCombine.swift in Sources */,
 				312A50282437756800778D6B /* FruitsProtocol.swift in Sources */,
 				31A1ED82243986780022EBF1 /* Environment.swift in Sources */,
 				312A501C24376E0200778D6B /* SplashViewController.swift in Sources */,
 				31A1ED7A243985C60022EBF1 /* API.swift in Sources */,
 				31A1ED8B24398AE00022EBF1 /* Device.swift in Sources */,
+				31A388A8243B1302009895C4 /* APIRequest.swift in Sources */,
 				312A50412437807F00778D6B /* FruitDetailProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
