@@ -31,3 +31,8 @@ extension HTTPStatus: CustomStringConvertible {
         }
     }
 }
+
+enum HTTPError: LocalizedError {
+    case statusCode
+    case post
+}

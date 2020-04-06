@@ -81,7 +81,7 @@ enum ApiError: Error {
         if let httpMessage = httpStatus?.description, !httpMessage.isEmpty {
             return httpMessage
         }
-        return (nsError?.localizedDescription ?? "")
+        return (nsError?.localizedDescription).unwrapped(or: "")
     }
 
     private func makeHTTPStatus(from e: Error?) -> HTTPStatus? {
@@ -107,4 +107,20 @@ extension NSError {
     func httpStatus() -> HTTPStatus? {
         return HTTPStatus(rawValue: code)
     }
+}
+
+extension Error {
+    func show() {
+        let `self` = self as NSError
+        self.show()
+    }
+
+    public var code: Int {
+        let `self` = self as NSError
+        return self.code
+    }
+}
+
+extension NSError {
+    func show() { }
 }

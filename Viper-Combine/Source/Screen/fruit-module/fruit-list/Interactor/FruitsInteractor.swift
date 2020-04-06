@@ -14,7 +14,6 @@ import Combine
 class FruitsInteractor: FruitsInputInteractorProtocol, ObservableObject {
     weak var presenter: FruitsOutputInteractorProtocol?
     private var subscriptions = Set<AnyCancellable>()
-    private var api = APIFilm()
     private var fruitList: [Fruit] = [Fruit]() {
         didSet {
             presenter?.fruitListDidFetch(fruitList: fruitList)
@@ -27,21 +26,41 @@ class FruitsInteractor: FruitsInputInteractorProtocol, ObservableObject {
 
     // MARK: Call API fetch film (cause have no Fruit API)
     private func getAllFruitDetail() -> [Fruit] {
-        api.fetchFilms()
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    fatalError(error.localizedDescription)
-                }
-            }) { apiResult in
-                apiResult.all.forEach { film in
-                    let item: [String: String] = ["name": film.title,"vitamin": film.producer]
+        
+        // MARK: Call API using Combine request.
+//        let provider: FilmProvider = FilmProvider()
+//        provider.fetchFilms()
+//            .receive(on: DispatchQueue.main)
+//            .sink(receiveCompletion: { completion in
+//                switch completion {
+//                case .finished:
+//                    break
+//                case .failure(let error):
+//                    fatalError(error.localizedDescription)
+//                }
+//            }) { apiResult in
+//                apiResult.all.forEach { film in
+//                    let item: [String: String] = ["name": film.title,"vitamin": film.producer]
+//                    self.fruitList.append(Fruit(attributes: item))
+//                }
+//        }.store(in: &subscriptions)
+
+        // MARK: Call API using original request.
+        let provider: FilmProvider = FilmProvider()
+        provider.fetchFilmsOriginal { (data, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                if let data: Data = data {
+                    print("Data: \(data)")
+                    let item: [String: String] = ["name": "Original data name","vitamin": "Original vitamin"]
                     self.fruitList.append(Fruit(attributes: item))
+                } else {
+                    print("Data format is error.")
                 }
-        }.store(in: &subscriptions)
+            }
+        }
+
         return fruitList
     }
 }
